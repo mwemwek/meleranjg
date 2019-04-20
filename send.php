@@ -32,7 +32,7 @@ if (isset($_REQUEST['send']))
   $mail->isSMTP();
   $mail->Host       = $smtp->host;
   $mail->SMTPAuth   = true;
-  $mail->Username   = 'apikey';
+  $mail->Username   = $smtp->username;
   $mail->Password   = $smtp->password;
   $mail->SMTPSecure = 'tls';
   $mail->Port       = 587;
