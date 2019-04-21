@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 error_reporting(-1);
 require_once(__DIR__ . '/vendor/autoload.php');
 
@@ -37,7 +37,7 @@ if (isset($_REQUEST['send']))
   $mail->SMTPSecure = 'tls';
   $mail->Port       = 587;
 
-  $message          = str_replace('##email##', $_REQUEST['to'], file_get_contents(__DIR__ . '/letter.html'));
+  $message          = str_replace('##email##', $_REQUEST['to'], file_get_contents($_REQUEST['letter']));
   $message          = str_replace('##random_string##', $option->random_str, $message);
   $message          = str_replace('##random_number##', $option->nomer, $message);
   $message          = str_replace('##link##', $option->link_scam, $message);
